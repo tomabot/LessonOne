@@ -52,7 +52,7 @@ public class LessonOneActivity extends Activity {
         //    return;
         //}
 
-        setContentView(R.layout.activity_lesson_one);
+        setContentView(mGLSurfaceView);
     }
 
     @Override

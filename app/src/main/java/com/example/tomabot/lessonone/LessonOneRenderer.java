@@ -157,9 +157,8 @@ public class LessonOneRenderer implements Renderer {
             + "attribute vec4 a_Color;          \n"     // per-vertex color info to be passed in
             + "varying vec4 v_Color;            \n"     // this will be passed to the fragment shader
                                                         // it will be interpolated across the triangle
-            + "void main()                      \n"     // entry point for the vertex shader
-            + "{                                \n"
-            + "    v_Color = a_Color            \n"     // pass the color thru to the fragment shader
+            + "void main() {                    \n"     // entry point for the vertex shader
+            + "    v_Color = a_Color;           \n"     // pass the color thru to the fragment shader
             + "    gl_Position = u_MVPMatrix    \n"     // gl_position is a special variable used to store the final position
             + "                * a_Position;    \n"     // multiply the vertex by the matrix to xform the point
             + "}                                \n";    // screen coordinates
