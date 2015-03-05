@@ -11,6 +11,7 @@ import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.opengl.Matrix;
 import android.os.SystemClock;
+import android.util.Log;
 
 
 /**
@@ -18,6 +19,8 @@ import android.os.SystemClock;
  */
 
 public class LessonOneRenderer implements GLSurfaceView.Renderer {
+
+    private static final String LESSONONE_RENDERER = "LessonOneRenderer:";
 
     /**
      * Store the model matrix. This matrix is used to move models from object space (where each model can be thought
@@ -75,6 +78,7 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer {
     public LessonOneRenderer()
     {
         // Define points for equilateral triangles.
+        Log.d(LESSONONE_RENDERER, "LessonOneRenderer");
 
         // This triangle is red, green, and blue.
         final float[] triangle1VerticesData = {
@@ -139,6 +143,8 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer {
     @Override
     public void onSurfaceCreated(GL10 glUnused, EGLConfig config)
     {
+        Log.d(LESSONONE_RENDERER, "OnSurfaceCreated");
+
         // Set the background clear color to gray.
         GLES20.glClearColor(0.5f, 0.5f, 0.5f, 0.5f);
 
@@ -285,6 +291,8 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer {
     @Override
     public void onSurfaceChanged(GL10 glUnused, int width, int height)
     {
+        Log.d(LESSONONE_RENDERER, "onSurfaceChanged");
+
         // Set the OpenGL viewport to the same size as the surface.
         GLES20.glViewport(0, 0, width, height);
 
@@ -304,11 +312,14 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer {
     @Override
     public void onDrawFrame(GL10 glUnused)
     {
+
         GLES20.glClear(GLES20.GL_DEPTH_BUFFER_BIT | GLES20.GL_COLOR_BUFFER_BIT);
 
         // Do a complete rotation every 10 seconds.
         long time = SystemClock.uptimeMillis() % 10000L;
         float angleInDegrees = (360.0f / 10000.0f) * ((int) time);
+
+        Log.d(LESSONONE_RENDERER, "onDrawFrame - " + Long.toString(time));
 
         // Draw the triangle facing straight on.
         Matrix.setIdentityM(mModelMatrix, 0);

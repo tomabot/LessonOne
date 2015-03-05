@@ -9,6 +9,7 @@ import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.opengl.Matrix;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -21,6 +22,7 @@ import javax.microedition.khronos.opengles.GL10;
 
 public class LessonOneActivity extends Activity {
 
+    private static final String LESSONONE_ACTIVITY = "LessonOneActivity:";
     /** Hold a reference to our GLSurfaceView
      *  The GLSurfaceView manages OpenGL surfaces and draws into the Android
      *  view system. It also adds features making it ieasier to use OpenGL, including:
@@ -34,6 +36,7 @@ public class LessonOneActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(LESSONONE_ACTIVITY, "onCreate");
 
         mGLSurfaceView = new GLSurfaceView(this);
 
@@ -60,6 +63,8 @@ public class LessonOneActivity extends Activity {
     {
         // the activity must call the GL surface view's onResume() on activity onResume()
         super.onResume();
+        Log.d(LESSONONE_ACTIVITY, "onResume");
+
         mGLSurfaceView.onResume();
     }
 
@@ -68,6 +73,8 @@ public class LessonOneActivity extends Activity {
     {
         // the activity must call the GL surface view's onPause() on activity onPause()
         super.onPause();
+        Log.d(LESSONONE_ACTIVITY, "onPause");
+
         mGLSurfaceView.onPause();
     }
 
@@ -75,6 +82,8 @@ public class LessonOneActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_lesson_one, menu);
+        Log.d(LESSONONE_ACTIVITY, "onCreateOptionsMenu");
+
         return true;
     }
 
@@ -84,6 +93,8 @@ public class LessonOneActivity extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        Log.d(LESSONONE_ACTIVITY, "onOptionsItemSelected");
+
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
