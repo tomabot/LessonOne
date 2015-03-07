@@ -4,20 +4,11 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.ConfigurationInfo;
-import android.opengl.EGLConfig;
-import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
-import android.opengl.Matrix;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.nio.FloatBuffer;
-
-import javax.microedition.khronos.opengles.GL10;
 
 
 public class LessonOneActivity extends Activity {
@@ -49,7 +40,7 @@ public class LessonOneActivity extends Activity {
             mGLSurfaceView.setEGLContextClientVersion(2);
 
             // set the renderer to our demo renderer, defined below
-            mGLSurfaceView.setRenderer(new LessonOneRenderer());
+            mGLSurfaceView.setRenderer(new LessonOneRenderer(getApplicationContext()));
         //} else {
             // oops ...system does not support OpenGL ES 2.0...
         //    return;
