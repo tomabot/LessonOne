@@ -282,7 +282,7 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer {
     }
 
     @Override
-    public void onSurfaceChanged(GL10 glUnused, int width, int height)
+    public void onSurfaceChanged(GL10 gl, int width, int height)
     {
         Log.d(LESSONONE_RENDERER, "onSurfaceChanged");
 
